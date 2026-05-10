@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Probby</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>Probby</h1>
+        <p>
+          ¡Hola! Soy Probby, tu tutor de Probabilidad y Estadística. ¿Qué
+          estudiaremos hoy?
+        </p>
+      </div>
+
+      <div id="chat"></div>
+
+      <div class="entrada-mensaje">
+        <input
+          type="text"
+          id="input-mensaje"
+          placeholder="Escribe un mensaje..."
+        />
+        <button id="boton-enviar">Enviar</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [
+            ["\\(", "\\)"],
+            ["$", "$"],
+          ],
+        },
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

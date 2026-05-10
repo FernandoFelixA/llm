@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 15px;
+}
+
+.contenedor-principal {
+  display: flexbox;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #171a23;
+  color: #f5f7fa;
+}
+
+.encabezado {
+  padding: 20px;
+  background-color: #0f1117;
+}
+
+#chat {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  border: 1px solid #2a3142;
+}
+
+.entrada-mensaje {
+  display: flex;
+  padding: 16px;
+  gap: 10px;
+  background-color: #0f1117;
+}
+
+#input-mensaje {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #2a3142;
+  background-color: #1e2233;
+  color: #f5f7fa;
+  font-size: 14px;
+}
+
+#boton-enviar {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #5b5fc7;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.usuario {
+  background-color: #2a3142;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin: 8px 0 8px auto;
+  max-width: 70%;
+  width: fit-content;
+}
+
+.probby {
+  background-color: #1e2233;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin: 8px auto 8px 0;
+  max-width: 70%;
+  width: fit-content;
+}
+
+.probby ul,
+.probby ol {
+  padding-left: 20px;
+}
+
+.probby p {
+  margin-bottom: 8px;
+}
+
+.puntos-animados {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.puntos-animados span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #f5f7fa;
+  animation: saltar 1s infinite;
+}
+
+.puntos-animados span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.puntos-animados span:nth-child(3) {
+  animation-delay: 4s;
+}
+
+@keyframes saltar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
