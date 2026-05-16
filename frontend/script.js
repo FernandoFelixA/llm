@@ -17,10 +17,17 @@ async function enviarMensaje() {
   // Lee el texto del input
   let inputMensaje = document.getElementById("input-mensaje");
   let mensaje = inputMensaje.value;
+
+  // Validar que el input no esté vacío
+  if (!mensaje.trim()) return;
+
   agregarMensaje(mensaje, "usuario");
 
   // Limpia el input
   document.getElementById("input-mensaje").value = "";
+
+  // Deshabilitar el botón mientras Probby responde
+  document.getElementById("boton-enviar").disabled = true;
 
   // Indicador
   const indicador = document.createElement("div");
@@ -54,6 +61,9 @@ async function enviarMensaje() {
   } else {
     respuesta = datos.respuesta;
   }
+
+  document.getElementById("boton-enviar").disabled = false;
+
   agregarMensaje(respuesta, "probby");
 }
 
@@ -64,16 +74,31 @@ function agregarMensaje(texto, autor) {
   if (autor === "probby") {
     div.innerHTML = marked.parse(texto);
     document.getElementById("chat").appendChild(div);
-    MathJax.typesetPromise([div]);
+    MathJax.typesetPromise([div]).then(() => {
+      const chat = document.getElementById("chat");
+      chat.scrollTop = chat.scrollHeight;
+    });
   } else {
     div.textContent = texto;
     document.getElementById("chat").appendChild(div);
+    const chat = document.getElementById("chat");
+    chat.scrollTop = chat.scrollHeight;
   }
+
+  const chat = document.getElementById("chat");
+  chat.scrollTop = chat.scrollHeight;
 }
 
 //Eventos
 document
   .getElementById("boton-enviar")
   .addEventListener("click", enviarMensaje);
+document
+  .getElementById("input-mensaje")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      enviarMensaje();
+    }
+  });
 
 iniciarSesion();
